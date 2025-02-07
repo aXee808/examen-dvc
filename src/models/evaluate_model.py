@@ -14,8 +14,8 @@ def main(repo_path):
     model = load(repo_path / "models/ridge_trained.pkl")
     predictions = model.predict(X_test_scaled)
     mse = mean_squared_error(y_test, predictions)
-    r2_score = r2_score(y_test, predictions)
-    metrics = {"mean_squared_error": mse,"r2_score":r2_score}
+    r2score = r2_score(y_test, predictions)
+    metrics = {"mean_squared_error": mse,"r2_score":r2score}
     mse_path = repo_path / "metrics/scores.json"
     mse_path.write_text(json.dumps(metrics))
 

@@ -95,10 +95,10 @@ stages:
       hash: md5
       md5: e064ea83fe860a49b9e9cfab1e8ec5a7
       size: 9697
-    - path: models/ridge_best_params.pkl
+    - path: models/ridge_trained.pkl
       hash: md5
-      md5: ffd2657abce2cd5bcde33cf53f44c933
-      size: 701
+      md5: ac39377bf419fa4e53de8e16fbfaa803
+      size: 947
     outs:
     - path: data/predictions.csv
       hash: md5

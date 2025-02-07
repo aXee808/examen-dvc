@@ -19,6 +19,7 @@ def main(repo_path):
     mse_path = repo_path / "metrics/scores.json"
     mse_path.write_text(json.dumps(metrics))
 
+    print("Model evaluated and metrics saved successfully.")
 if __name__ == "__main__":
     repo_path = Path(__file__).parent.parent.parent
     main(repo_path)

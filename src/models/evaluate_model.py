@@ -7,6 +7,7 @@ from sklearn.metrics import mean_squared_error,r2_score
 
 def main(repo_path):
     # load X_train_scaled,X_test_scaled, y_train,y_test
+    X_test =  pd.read_csv('./data/processed_data/X_test.csv')
     X_test_scaled = pd.read_csv('./data/processed_data/X_test_scaled.csv')
     y_test = pd.read_csv('./data/processed_data/y_test.csv')
     y_test = np.ravel(y_test)
@@ -19,7 +20,11 @@ def main(repo_path):
     mse_path = repo_path / "metrics/scores.json"
     mse_path.write_text(json.dumps(metrics))
 
-    print("Model evaluated and metrics saved successfully.")
+    result_dataset=pd.DataFrame.from_records(X_test)
+    result_dataset['silica_concentrate_predict']=predictions
+    result_dataset.to_csv(repo_path / "data/predictions.csv", index=False)
+
+    print("Model evaluated, predictions and metrics saved successfully.")
 if __name__ == "__main__":
     repo_path = Path(__file__).parent.parent.parent
     main(repo_path)
